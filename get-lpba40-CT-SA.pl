@@ -94,14 +94,16 @@ foreach(@subjects) {
         '-clobber',
         '-transformation', $nonlin_transform_file,
         '-invert',
-        '-use_input_sampling'
+        '-use_input_sampling',
+        '-nearest_neighbour'
     );
     do_cmd('mincresample',
         $right_model, "${tmpdir}/${subject}_right_model.mnc",
         '-clobber',
         '-transformation', $nonlin_transform_file,
         '-invert',
-        '-use_input_sampling'
+        '-use_input_sampling',
+        '-nearest_neighbour'
     );
     my $i = 0;
     foreach(@labels) {
