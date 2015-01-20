@@ -53,8 +53,6 @@ my $left_model = $scriptpath . "/lpba40_labels_May8-2012_L-Final.mnc";
 my $right_model = $scriptpath . "/lpba40_labels_May8-2012_L-Final-flip.mnc";
 
 my @subjects = split(/\n/, `ls -1 $input_dir`);
-@subjects = grep { $_ != "QC" } @subjects;
-@subjects = grep { $_ != "References.txt" } @subjects;
 
 chomp(@subjects);
 
@@ -82,6 +80,12 @@ print FILE "\n";
 foreach(@subjects) {
     my $subject = $_;
     my $output = $subject;    
+
+    # In the CIVET output folder somethings which aren't subject folders
+    # So we skip them.
+    if (($subject eq "QC") or ($subject eq "References.txt")) {
+      next;
+    }
     chomp(my $obj_left_file = `ls -1 ${input_dir}/${subject}/surfaces/*gray_surface_rsl_left_81920.obj`);
     chomp(my $obj_right_file =  `ls -1 ${input_dir}/${subject}/surfaces/*gray_surface_rsl_right_81920.obj`);
     chomp(my $ct_left_file = `ls -1 ${input_dir}/${subject}/thickness/*native_rms_rsl_tlink_20mm_left.txt`);
