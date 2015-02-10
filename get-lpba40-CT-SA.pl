@@ -176,7 +176,6 @@ foreach(@subjects) {
     }
     print FILE $output;
     print FILE "\n";
-    unlink glob "${tmpdir}/${subject}*";
 }
 
 
