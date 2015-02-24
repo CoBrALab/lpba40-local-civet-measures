@@ -88,10 +88,10 @@ foreach(@subjects) {
     }
     chomp(my $obj_left_file = `ls -1 ${input_dir}/${subject}/surfaces/*gray_surface_rsl_left_81920.obj`);
     chomp(my $obj_right_file =  `ls -1 ${input_dir}/${subject}/surfaces/*gray_surface_rsl_right_81920.obj`);
-    chomp(my $ct_left_file = `ls -1 ${input_dir}/${subject}/thickness/*native_rms_rsl_tlink_20mm_left.txt`);
-    chomp(my $ct_right_file = `ls -1 ${input_dir}/${subject}/thickness/*native_rms_rsl_tlink_20mm_right.txt`);
-    chomp(my $sa_left_file = `ls -1 ${input_dir}/${subject}/surfaces/*mid_surface_rsl_left_native_area_40mm.txt`);
-    chomp(my $sa_right_file = `ls -1 ${input_dir}/${subject}/surfaces/*mid_surface_rsl_right_native_area_40mm.txt`);
+    chomp(my $ct_left_file = `ls -1 ${input_dir}/${subject}/thickness/*native_rms_rsl_tlink_*mm_left.txt`);
+    chomp(my $ct_right_file = `ls -1 ${input_dir}/${subject}/thickness/*native_rms_rsl_tlink_*mm_right.txt`);
+    chomp(my $sa_left_file = `ls -1 ${input_dir}/${subject}/surfaces/*mid_surface_rsl_left_native_area_*mm.txt`);
+    chomp(my $sa_right_file = `ls -1 ${input_dir}/${subject}/surfaces/*mid_surface_rsl_right_native_area_*mm.txt`);
     chomp(my $nonlin_transform_file = `ls -1 ${input_dir}/${subject}/transforms/nonlinear/*nlfit_It.xfm`);
     do_cmd('mincresample',
         $left_model, "${tmpdir}/${subject}_left_model.mnc",
