@@ -5,7 +5,7 @@ This tool uses the cortex labels defined by the lpba40 atlas and CIVET output
 files to calculate the mean cortical thickness, and total surface area at 26
 regions of interest:
 ```
-tral_middle_frontal_gyrus_inferior_tier
+rostral_middle_frontal_gyrus_inferior_tier
 caudal_middle_frontal_gyrus
 superior_frontal_gyrus
 rostral_middle_frontal_gyrus_superior_tier
